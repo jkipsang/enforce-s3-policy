@@ -7,8 +7,7 @@ The policy JSON file enforce-tls-12-requests-only.json contains statements that:
 
     Deny any S3 actions on the bucket and its objects if the TLS version is less than 1.2.
     Deny any S3 actions on the bucket and its objects if the request is not made over HTTPS.
-
-json
+```json
 
 {
     "Version": "2012-10-17",
@@ -75,7 +74,7 @@ sh
 
 Script Content
 
-bash
+```bash
 
 #!/bin/bash
 
