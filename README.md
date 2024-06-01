@@ -112,3 +112,7 @@ echo "Policy update process completed."
 # Contributing
 
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements.
+#License
+
+This project is licensed under the MIT License. See the  [LICENSE](https://github.com/jkipsang/enforce-s3-policy?tab=MIT-1-ov-file)
+ file for details.
