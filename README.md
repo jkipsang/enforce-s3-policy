@@ -107,15 +107,16 @@ rm "$policy_temp_file"
 
 echo "Policy update process completed."
 
-Notes
+
+
+#Notes
 
     Ensure the AWS CLI is configured with a profile that has the necessary permissions to update bucket policies.
     The script replaces the placeholder YOUR_BUCKET_NAME in the policy template with each bucket name.
     The temporary policy file is created in /tmp and is cleaned up after the script runs.
 
-Contributing
+#Contributing
 
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements.
-License
-
+#License
 This project is licensed under the MIT License. See the LICENSE file for details.
