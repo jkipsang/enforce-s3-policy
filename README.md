@@ -58,3 +58,57 @@ The Bash script update-s3-policies.sh automates the process of applying the abov
 # Usage
 
 Clone the repository:
+```
+git clone https://github.com/your-repo/enforce-s3-policy.git
+cd enforce-s3-policy
+```
+Edit the list of buckets:
+
+Update the buckets array in update-s3-policies.sh with the names of your S3 buckets.
+
+Run the script:
+```bash
+./update-s3-policies.sh
+```
+# Script Content
+```bash
+#!/bin/bash
+
+# Define the list of buckets
+buckets=("bucket1" "bucket2" "bucket3")
+
+# Define the policy template and profile
+policy_template="path/enforce-tls-12-requests-only.json"
+policy_temp_file="/tmp/enforce-tls-12-requests-only.json"
+profile="AWS Profile"
+
+# Iterate over the buckets and apply the policy
+for bucket in "${buckets[@]}"; do
+  echo "Updating policy for bucket: $bucket"
+
+  # Create a temporary policy file for the current bucket
+  sed "s/YOUR_BUCKET_NAME/$bucket/g" "$policy_template" > "$policy_temp_file"
+
+  aws s3api put-bucket-policy --bucket "$bucket" --policy file://"$policy_temp_file" --profile "$profile"
+
+  if [ $? -eq 0 ]; then
+    echo "Successfully updated policy for bucket: $bucket"
+  else
+    echo "Failed to update policy for bucket: $bucket" >&2
+  fi
+done
+
+# Clean up temporary file
+rm "$policy_temp_file"
+
+echo "Policy update process completed."
+```
+# Notes
+
+    Ensure the AWS CLI is configured with a profile that has the necessary permissions to update bucket policies.
+    The script replaces the placeholder YOUR_BUCKET_NAME in the policy template with each bucket name.
+    The temporary policy file is created in /tmp and is cleaned up after the script runs.
+
+# Contributing
+
+Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements.
