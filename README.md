@@ -1,7 +1,7 @@
-#Enforce S3 Bucket Policy
+# Enforce S3 Bucket Policy
 
 This repository provides a JSON policy file and a Bash script to enforce TLS 1.2 and secure requests on Amazon S3 buckets. The policy denies access to requests that do not meet the TLS 1.2 protocol and are not sent over HTTPS.
-#JSON Policy File
+# JSON Policy File
 
 The policy JSON file enforce-tls-12-requests-only.json contains statements that:
 
