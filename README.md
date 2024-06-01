@@ -45,16 +45,16 @@ The policy JSON file enforce-tls-12-requests-only.json contains statements that:
     ]
 }
 
-Bash Script
+#Bash Script
 
 The Bash script update-s3-policies.sh automates the process of applying the above policy to a list of S3 buckets. It iterates over a predefined list of buckets, updates the policy JSON with the specific bucket name, and applies the policy using the AWS CLI.
 Prerequisites
 
-    AWS CLI installed and configured with the necessary permissions.
+    AWS CLI is installed and configured with the necessary permissions.
     A list of S3 bucket names.
     The JSON policy template file (enforce-tls-12-requests-only.json).
 
-Usage
+#Usage
 
     Clone the repository:
 
@@ -66,7 +66,7 @@ cd enforce-s3-policy
 Edit the list of buckets:
 Update the buckets array in update-s3-policies.sh with the names of your S3 buckets.
 
-Run the script:
+#Run the script:
 
 sh
 
@@ -74,6 +74,7 @@ sh
 
 Script Content
 
+#bash
 ```bash
 
 #!/bin/bash
